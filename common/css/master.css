@@ -414,8 +414,6 @@ base
 -------------------------------------*/
 * {
   box-sizing: border-box; }
-  *:focus {
-    border: 1px solid #23527c; }
 
 img {
   max-width: 100%;
@@ -685,7 +683,8 @@ contents
     margin: 0 auto 90px;
     max-width: 700px; }
     .contents .logo-svg .logo-svg-body {
-      vertical-align: middle; }
+      vertical-align: middle;
+      width: 100%; }
   .contents .yomei-time {
     margin-bottom: 0;
     opacity: 0;
@@ -716,9 +715,10 @@ contents
     vertical-align: middle; }
   .contents .tw {
     position: absolute;
-    top: 10px;
+    top: -100px;
     right: 10px;
-    display: none; }
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; }
 
 /*-------------------------------------
 footer
@@ -767,6 +767,8 @@ tables
 .form-01 {
   margin: 0 auto;
   max-width: 400px; }
+  .form-01:focus {
+    border: 1px solid #23527c; }
 
 .form-01-body {
   margin-bottom: 20px;

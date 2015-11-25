@@ -34,6 +34,9 @@ $(function(){
             $easing = 'easeOutExpo',
 
             windowHeight = $(window).height(),
+            
+            //form用
+            formAgeVal,
 
             //countDown関数用
             clock = [],
@@ -267,7 +270,12 @@ $(function(){
         
         //form desabled
         $form.on('change', function(){
-            if(($formSex.filter(':checked').val() === 'male' || $formSex.filter(':checked').val() === 'female' )&& $formAge.val().match(/[1-9][1-9]?/)){
+            
+            formAgeVal = Number($formAge.val());
+            
+            var ageStr = String(formAgeVal);
+            
+            if(($formSex.filter(':checked').val() === 'male' || $formSex.filter(':checked').val() === 'female' )&& ageStr.match(/[1-9][1-9]?/)){
                 $go.removeAttr('disabled');
             } else {
                 $go.attr('disabled', 'disabled');
@@ -289,8 +297,8 @@ $(function(){
         $go.on('click', function(){
 
             selectDate[0] = $formSex.filter(':checked').val();
-            selectDate[1] = $formAge.val();
-
+            selectDate[1] = formAgeVal;
+            
             if(selectDate[0] === 'male'){
                 selectDate[2] = lifeValueM[selectDate[1]];
             } else if(selectDate[0] === 'female'){
@@ -362,9 +370,9 @@ $(function(){
                    'opacity': 1
                 }, 600, $easing);
                 
-                setTimeout(function(){
-                    $twBtn.fadeIn();
-                }, 5300);
+                $twBtn.css({'top': '10px'}).delay(5300).animate({
+                    'opacity': 1
+                }, 600, $easing);
                 
                 //countStart関数実行
                 countStart();
