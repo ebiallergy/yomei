@@ -268,11 +268,14 @@ $(function(){
                 });
             }
         
+        
+        //form reset
+        $form.find("textarea, :text, select").val("").end().find(":checked").prop("checked", false);
+        
         //form desabled
         $form.on('change', function(){
             
             formAgeVal = Number($formAge.val());
-            
             var ageStr = String(formAgeVal);
             
             if(($formSex.filter(':checked').val() === 'male' || $formSex.filter(':checked').val() === 'female' )&& ageStr.match(/[1-9][1-9]?/)){
