@@ -16,7 +16,6 @@ $(function(){
 //----------------------------------------------------------
         
         
-            //form用
         var $contents = $(this),
             $contentsBody = $contents.find('.contents-body'),
             $logoSvg = $contents.find('.logo-svg'),
@@ -44,7 +43,7 @@ $(function(){
             secondesLength,
             timer,
 
-            //厚生労働省 平成25年 簡易生命表 男・女
+            //厚生労働省 平成25年 簡易生命表 男・女データ
             selectDate = [],
             lifeValueM = {
                 1: 79.39,
@@ -249,6 +248,7 @@ $(function(){
                 99: 2.58
             },
             
+            //落ちるiconの種類（Font Awesomeのクラス名）
             icon = [
                 'fa-heart',
                 'fa-heart-o',
@@ -316,6 +316,7 @@ $(function(){
     //    関数の登録
     //----------------------------------------------------------
         
+        //フェーズ1： フォーム入力画面
         function phase1(){
             
             $contentsBody.animate({
@@ -330,6 +331,7 @@ $(function(){
             phase2();
         }
         
+        //フェーズ2： フェーズ3への切り替え動作
         function phase2(){
         
             $field.css({
@@ -352,6 +354,7 @@ $(function(){
             },1500);
         }
         
+        //フェーズ3： 結果画面
         function phase3(){
             
             setTimeout(function(){
@@ -384,6 +387,7 @@ $(function(){
             
         }
     
+        //余命カウントダウン関数
         function countStart(){
             
             var yomeiTime = Math.round(selectDate[2] * (365 * 24)),
@@ -396,11 +400,13 @@ $(function(){
             stopTimer();
             startTimer();
             
+            //twitterのdate-textを書き換える為、後から要素を生成
             function tw(){
                 var twSrc = '<a href="https://twitter.com/share" class="twitter-share-button"data-url="http://ebiallergy.github.io/yomei/" data-text="あなたの余命は後' + yomeiTime + '時間です。" data-size="large" data-hashtags="yomei">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script>';
                 $twBtn.prepend(twSrc);
             }
-
+            
+            //数字が一桁の場合は、0を頭に付与
             function countDown(){
                 minutesLength = String(minutes).length;
                 secondesLength = String(secondes).length;
@@ -415,6 +421,7 @@ $(function(){
                 $yomeiTime.text(clock[0] + ':' + clock[1] + ':' + clock[2]);
             }
 
+            //1秒毎に値を減らしてカウントダウンを実装
             function startTimer(){
                 timer = setInterval(function(){
 
@@ -437,8 +444,4 @@ $(function(){
             }
         }
     });
-    
-    //twitter js
-//    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-
 });
