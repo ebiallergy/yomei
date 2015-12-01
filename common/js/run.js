@@ -259,7 +259,7 @@ $(function(){
     //    イベントの登録
     //----------------------------------------------------------
         
-        //初期位置の設定
+        //ブラウザの左端に目盛付与
         $contents.css({'height': windowHeight});
 
             for(var i = 0; i < 10; i++){
@@ -275,14 +275,19 @@ $(function(){
         //form desabled
         $form.on('change', function(){
             
-            formAgeVal = Number($formAge.val());
-            var ageStr = String(formAgeVal);
+            $formAge.val($formAge.val().slice(0, 2));
+            $formAge.val($formAge.val().replace(/^0/, ''));
+            $formAge.val($formAge.val().replace(/[^0-9]/g, ''));
+            formAgeVal = $formAge.val();
             
-            if(($formSex.filter(':checked').val() === 'male' || $formSex.filter(':checked').val() === 'female' )&& ageStr.match(/[1-9][1-9]?/)){
+            if(($formSex.filter(':checked').val() === 'male' || $formSex.filter(':checked').val() === 'female' ) && formAgeVal.match(/[1-9][1-9]?/)){
                 $go.removeAttr('disabled');
             } else {
                 $go.attr('disabled', 'disabled');
             }
+            
+            console.log('0', $formAge.val());
+            console.log('1', formAgeVal);
         });
         
 //        fall-item randam
