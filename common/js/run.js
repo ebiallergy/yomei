@@ -285,23 +285,10 @@ $(function(){
             } else {
                 $go.attr('disabled', 'disabled');
             }
-            
-            console.log('0', $formAge.val());
-            console.log('1', formAgeVal);
         });
         
-//        fall-item randam
-        setInterval(function(){
-            var i = icon.length,
-                r = Math.floor(Math.random()*i);
-            
-            $fallItem.removeClass(function(index, className){
-                return (className.match(/\bfa-\S+/g) || []).join();
-            });
-            $fallItem.addClass(icon[r]);
-        },6000);
-
-        //決定をクリックしたら実行
+        
+        //Goをクリックしたら実行
         $go.on('click', function(){
 
             selectDate[0] = $formSex.filter(':checked').val();
@@ -345,13 +332,11 @@ $(function(){
             });
             
             setTimeout(function(){
-                
                 $contentsBody.css({
                     'width': '99%'
                 });
                 
                 $logoSvg.addClass('logo-svg-phase2');
-
                 $yomeiTime.addClass('yomei-time-phase2');
 
                 phase3();
@@ -363,7 +348,9 @@ $(function(){
         function phase3(){
             
             setTimeout(function(){
-                $fallItem.fadeIn();
+                
+                $fallItem.addClass('fall-item-on');
+                fallStart();
                 
                 $scale.delay(3600).animate({
                     'left': 0
@@ -391,6 +378,27 @@ $(function(){
             }, 600);
             
         }
+        
+        
+        //fall-item randam関数
+        function fallStart(){
+            var i = icon.length;
+
+            //1秒毎に監視
+            setInterval(function(){
+
+                //fall-itemが底辺にいったら実行
+                if($fallItem.offset().top >= windowHeight - 120){
+                    var r = Math.floor(Math.random()*i);
+
+                    $fallItem.removeClass(function(index, className){
+                        return (className.match(/\bfa-\S+/g) || []).join();
+                    });
+                    $fallItem.addClass(icon[r]);
+                }
+            },1000);
+        }
+        
     
         //余命カウントダウン関数
         function countStart(){
