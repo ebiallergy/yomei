@@ -295,11 +295,13 @@
             selectDate[2] = lifeValueW[selectDate[1]];
         }
 
+        console.log(Math.round(selectDate[2]));
+
         var title = 'yomei',
             lbl = selectDate[0] + ' ' + selectDate[1];
 
         if (lbl) {
-            eventTrack(title, lbl);
+            // eventTrack(title, lbl);
         }
 
         //phase1 animate関数実行
@@ -405,7 +407,9 @@
     //余命カウントダウン関数
     function countStart() {
 
-        var yomeiTime = Math.round(selectDate[2] * (365 * 24)),
+        var yomeiTime = Math.round(selectDate[2]),
+            days = 0,
+            times = 0,
             minutes = 0,
             secondes = 0;
 
@@ -417,32 +421,50 @@
 
         //twitterのdate-textを書き換える為、後から要素を生成
         function tw() {
-            var twSrc = '<a href="https://twitter.com/share" class="twitter-share-button"data-url="http://ebiallergy.github.io/yomei/" data-text="あなたの余命は後' + yomeiTime + '時間です。" data-size="large" data-hashtags="yomei">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script>';
+            var twSrc = '<a href="https://twitter.com/share" class="twitter-share-button"data-url="http://ebiallergy.github.io/yomei/" data-text="あなたの余命は後' + yomeiTime + '年です。" data-size="large" data-hashtags="yomei">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script>';
             $twBtn.prepend(twSrc);
         }
 
         //数字が一桁の場合は、0を頭に付与
         function countDown() {
-            minutesLength = String(minutes).length;
-            secondesLength = String(secondes).length;
+            var daysLength = String(days).length,
+                timesLength = String(times).length,
+                minutesLength = String(minutes).length,
+                secondesLength = String(secondes).length;
 
+            if (daysLength === 2) {
+                days = '0' + times;
+            } else if (daysLength === 1) {
+                days = '00' + times;
+            }
+            if (timesLength === 1) {
+                times = '0' + times;
+            }
             if (minutesLength === 1) {
                 minutes = '0' + minutes;
             }
             if (secondesLength === 1) {
                 secondes = '0' + secondes;
             }
-            clock = [yomeiTime, minutes, secondes];
-            $yomeiTime.text(clock[0] + ':' + clock[1] + ':' + clock[2]);
+            clock = [yomeiTime, days, times, minutes, secondes];
+            $yomeiTime.text(clock[0] + ':' + clock[1] + ':' + clock[2] + ':' + clock[3] + ':' + clock[4]);
         }
 
         //1秒毎に値を減らしてカウントダウンを実装
         function startTimer() {
             timer = setInterval(function () {
 
+                if (days === '000') {
+                    days = 365;
+                    yomeiTime--;
+                }
+                if (times === '00') {
+                    times = 24;
+                    days--;
+                }
                 if (minutes === '00') {
                     minutes = 60;
-                    yomeiTime--;
+                    times--;
                 }
                 if (secondes === '00') {
                     secondes = 60;
