@@ -295,13 +295,11 @@
             selectDate[2] = lifeValueW[selectDate[1]];
         }
 
-        console.log(Math.round(selectDate[2]));
-
         var title = 'yomei',
             lbl = selectDate[0] + ' ' + selectDate[1];
 
         if (lbl) {
-            // eventTrack(title, lbl);
+            eventTrack(title, lbl);
         }
 
         //phase1 animate関数実行
