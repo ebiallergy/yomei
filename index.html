@@ -1,113 +1,107 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name=”keywords” content="YOMEI, 余命">
-<meta name=”description” content="厚生労働省 平成25年 簡易生命表を元にあなたの平均余命を表示します。">
-<title>YOMEI</title>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="./common/css/master.css">
-</head>
-<body>
-<!-- ======================== Contetns START =================================== -->
-<main class="contents" role="main">
-<div class="contents-body">
 
-<div class="base-item">
-<h1 class="logo-svg">
-<svg class="logo-svg-body" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-y="0px" viewBox="149.11 184.324 286.398 54.664"
-enable-background="new 149.11 184.324 286.398 54.664" xml:space="preserve">
-<g>
-<title>YOMEI</title>
-<path class="path" fill="#16A6B6" d="M172.056,212.078l13.359-26.016h7.91l-17.965,33.188v18h-6.891v-18.457l-17.684-32.73h7.91
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name=”keywords” content="YOMEI, 余命">
+	<meta name=”description” content="厚生労働省 平成25年 簡易生命表を元にあなたの平均余命を表示します。">
+	<title>YOMEI</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./common/css/master.css">
+</head>
+
+<body>
+	<!-- ======================== Contetns START =================================== -->
+	<main class="contents" role="main">
+		<div class="contents-body">
+
+			<div class="base-item">
+				<h1 class="logo-svg">
+					<svg class="logo-svg-body" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+					 y="0px" viewBox="149.11 184.324 286.398 54.664" enable-background="new 149.11 184.324 286.398 54.664" xml:space="preserve">
+						<g>
+							<title>YOMEI</title>
+							<path class="path" fill="#16A6B6" d="M172.056,212.078l13.359-26.016h7.91l-17.965,33.188v18h-6.891v-18.457l-17.684-32.73h7.91
 L172.056,212.078z"></path>
-<path class="path" fill="#16A6B6" d="M258.251,216.227c0,6.258-1.939,11.449-5.818,15.574c-3.879,4.125-8.912,6.188-15.1,6.188
+							<path class="path" fill="#16A6B6" d="M258.251,216.227c0,6.258-1.939,11.449-5.818,15.574c-3.879,4.125-8.912,6.188-15.1,6.188
 c-5.977,0-10.834-2.062-14.572-6.188c-3.738-4.125-5.607-9.316-5.607-15.574v-9.105c0-6.234,1.869-11.426,5.607-15.574
 s8.596-6.223,14.572-6.223c6.188,0,11.221,2.069,15.1,6.205c3.879,4.137,5.818,9.334,5.818,15.592V216.227z M251.326,207.051
 c0-4.688-1.266-8.531-3.797-11.531c-2.531-3-5.93-4.5-10.195-4.5c-4.031,0-7.248,1.5-9.65,4.5c-2.402,3-3.604,6.844-3.604,11.531
 v9.176c0,4.734,1.201,8.602,3.604,11.602c2.402,3,5.619,4.5,9.65,4.5c4.289,0,7.693-1.494,10.213-4.482s3.779-6.861,3.779-11.619
 V207.051z"></path>
-<path class="path" fill="#16A6B6" d="M294.726,186.063l16.313,41.59h0.211l16.313-41.59h8.859v51.188h-6.926V217l0.703-20.813l-0.176-0.035
+							<path class="path" fill="#16A6B6" d="M294.726,186.063l16.313,41.59h0.211l16.313-41.59h8.859v51.188h-6.926V217l0.703-20.813l-0.176-0.035
 l-16.594,41.098h-4.605L292.3,196.258l-0.176,0.035L292.792,217v20.25h-6.926v-51.188H294.726z"></path>
-<path class="path" fill="#16A6B6" d="M395.329,213.52h-23.449v18.281h27.035v5.449h-33.961v-51.188h33.574v5.449h-26.648v16.559h23.449V213.52z
+							<path class="path" fill="#16A6B6" d="M395.329,213.52h-23.449v18.281h27.035v5.449h-33.961v-51.188h33.574v5.449h-26.648v16.559h23.449V213.52z
 "></path>
-<path class="path" fill="#16A6B6" d="M434.508,237.25h-6.961v-51.188h6.961V237.25z"></path>
-</g>
-<rect x="704.167" y="138.667" fill="#16A6B6" width="28" height="96"/>
-</svg>
-</h1>
-<p class="yomei-time"></p>
-</div><!-- /.base-item -->
+							<path class="path" fill="#16A6B6" d="M434.508,237.25h-6.961v-51.188h6.961V237.25z"></path>
+						</g>
+						<rect x="704.167" y="138.667" fill="#16A6B6" width="28" height="96" />
+					</svg>
+				</h1>
+				<p class="yomei-time"></p>
+			</div>
+			<!-- /.base-item -->
 
-<form class="form-01">
-<table class="form-01-body">
-<tbody>
-<tr>
-<th>Sex</th>
-<td>
-<label class="form-sex">
+			<form class="form-01">
+				<table class="form-01-body">
+					<tbody>
+						<tr>
+							<th>Sex</th>
+							<td>
+								<label class="form-sex">
 <input type="radio" value="male" name="check">
 <span>male</span>
 </label>
-<label class="form-sex">
+								<label class="form-sex">
 <input type="radio" value="female" name="check">
 <span>female</span>
 </label>
-</td>
-</tr>
-<tr>
-<th><label for="age">Age</label></th>
-<td>
-<input type="number" id="age" min="1" max="99">
-<input type="text" style="display: none;">
-</td>
-</tr>
-</tbody>
-</table>
-<button type="button" class="btn-01 go" disabled="disabled">Go</button>
-</form><!-- /.form-01 -->
-</div><!-- /.contents-body -->
+							</td>
+						</tr>
+						<tr>
+							<th><label for="age">Age</label></th>
+							<td>
+								<input type="number" id="age" min="1" max="99">
+								<input type="text" style="display: none;">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<button type="button" class="btn-01 go" disabled="disabled">Go</button>
+			</form>
+			<!-- /.form-01 -->
+		</div>
+		<!-- /.contents-body -->
 
-<div class="fall-item fa fa-heart" id=""></div>
-<ul class="scale">
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-</ul>
-<div class="field"></div>
+		<div class="fall-item fa fa-heart" id=""></div>
+		<ul class="scale">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<div class="field"></div>
 
-<article class="tw">
+		<article class="tw">
 
-</article>
+		</article>
 
-</main><!-- /.contents -->
-<!-- ======================== Contetns END =================================== -->
+	</main>
+	<!-- /.contents -->
+	<!-- ======================== Contetns END =================================== -->
 
-<!-- Google Analytics -->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-59973092-3', 'auto');
-ga('send', 'pageview');
-</script>
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="./common/js/min/jquery.min.js"><\/script>');</script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<script>window.jQuery || document.write('<script src="./common/js/min/jquery-ui.min.js"><\/script>');</script>
-<script src="./common/js/min/run.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="/assets/js/min/ga.js"></script>
+	<script src="./common/js/min/run.js"></script>
 </body>
+
 </html>
